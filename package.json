@@ -34,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-simple-flex-grid": "^1.3.21",
+    "spotify-web-api-js": "^1.5.1"
   }
 }
