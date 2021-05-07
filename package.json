@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-api": "cd api && flask run --no-debugger",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +39,6 @@
   "devDependencies": {
     "react-simple-flex-grid": "^1.3.21",
     "spotify-web-api-js": "^1.5.1"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

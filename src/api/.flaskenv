@@ -1,0 +1,2 @@
+FLASK_APP=spotifyChartsScrape.py
+FLASK_ENV=development
