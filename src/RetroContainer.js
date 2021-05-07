@@ -46,20 +46,25 @@ class RetroContainer extends React.Component {
         fetch(authEndpoint, requestOptions)
             .then((response) => response.json())
             .then((data) => this.setState({res: data}));
-
-        this.submitDate()
     }
 
     submitDate = (date) => {
         console.log(date)
+        const dayForAPI = `${date.month}${date.day}${date.year}`
+        console.log(dayForAPI)
+        fetch(`/getDate/${dayForAPI}`)
+        .then(res => res.json())
+        .then(data=> {
+            this.setState({
+                trackIDs: data.tracks.map(t => t.id)
+            })
+        });
 
         if (this.state.res.access_token) {
             spotifyApi.setAccessToken(this.state.res.access_token);
         }
-        
-        const tIDs = this.state.trackIDs
 
-        spotifyApi.getTracks(tIDs)
+        spotifyApi.getTracks(this.state.trackIDs)
             .then(response => {
                 let songsArray = response.tracks.map((s) => 
                     {return (

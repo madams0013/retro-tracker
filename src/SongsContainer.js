@@ -19,20 +19,6 @@ function SongsContainer(props){
                 </Col>
             )}
         </Row>
-
-        // <ul>
-        //     {
-        //         props.songs.map(song =>
-        //             <SongBox
-        //                 key = {song.id}
-        //                 title = {song.title}
-        //                 artists = {song.artists}
-        //                 releaseDate = {song.releaseDate}
-        //                 image = {song.image}
-        //             />
-        //         )
-        //     }
-        // </ul>
     )
 }
 
