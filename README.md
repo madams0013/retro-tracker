@@ -5,6 +5,12 @@ This app allows a user to select a date and it will display the songs from the t
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # To Run:
+## Clone this repo:
+
+Click the code dropdown on the repo homepage and copy the link
+
+### `git clone {link}`
+
 ## Start the Client:
 
 In the project directory, you run:
