@@ -10,8 +10,8 @@ function SongBox(props) {
         >
             <div className="tileLabels">
                 <img src={props.song.image.url} alt="album cover" width="100%"/>
-                {props.song.title}<br/>
-                {props.song.artists.map(a => a+' ')}<br/>
+                <div>{props.song.title}</div>
+                <div style={{color: `#ff00ff`}}>{props.song.artists.map(a => <div>{a}</div>)}</div>
                 {props.song.releaseDate}
             </div>
         </Col>

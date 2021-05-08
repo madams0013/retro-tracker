@@ -3,8 +3,8 @@ body {
     color: white;
 }
 
-h1, .selectbar {
-    color: #77dfa8;
+h1, .selectBar {
+    color: #FF00FF;
     font-family: "Lucida Sans Typewriter", "Courier New", monospace;
     text-align: center;
 }
@@ -14,4 +14,26 @@ h1, .selectbar {
     color: black;
     font-family: "Lucida Sans Typewriter", "Courier New", monospace;
     text-align: center;
+}
+
+.selectBox{
+    width:140px;
+    height:40px;
+    border:0px;
+    outline:none;
+    text-align: center;
+    font-family: "Lucida Sans Typewriter", "Courier New", monospace;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+    background: #77dfa8;
+} 
+
+.selectBarSubmit {
+    background-color: #77dfa8;
+    color: #FF00FF;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
 }

@@ -38,14 +38,14 @@ class RetroContainer extends React.Component {
             res: "",
             justQueried: false,
         };
+
+        fetch(authEndpoint, requestOptions)
+            .then((response) => response.json())
+            .then((data) => data.access_token)
+            .then((token) => spotifyApi.setAccessToken(token))
     }
 
     submitDate = async (date) => {
-
-        if (this.state.res.access_token) {
-            spotifyApi.setAccessToken(this.state.res.access_token);
-        }
-
         const dayForAPI = `${date.month}${date.day}${date.year}`
 
         fetch(`/getDate/${dayForAPI}`)
@@ -79,12 +79,6 @@ class RetroContainer extends React.Component {
                         })
                     })
             })
-    }
-
-    componentDidMount() {
-        fetch(authEndpoint, requestOptions)
-            .then((response) => response.json())
-            .then((data) => this.setState({res: data}));
     }
 
     render() {
