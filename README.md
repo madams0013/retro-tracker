@@ -1,4 +1,4 @@
-# ~Retro~ Tracker!
+# \~Retro\~ Tracker!
 
 This app allows a user to select a date and it will display the songs from the top 50 viral chart on that particular day that were released more than 20 years before. It shows "old" songs that came back to be popular on the selected day.
 
@@ -20,8 +20,8 @@ You will also see any lint errors in the console.
 
 In a separate terminal from the retro-tracker/ folder:
 
-### cd src/api
-### flask run
+### `cd src/api`
+### `flask run`
 
 The server should now be up and running.
 
