@@ -10,6 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Click the code dropdown on the repo homepage and copy the link
 
 ### `git clone {link}`
+### `cd retro-tracker`
 
 ## Start the Client:
 
