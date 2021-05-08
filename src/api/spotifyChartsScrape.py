@@ -15,12 +15,24 @@ SONG_IDX = 3
 
 app = Flask(__name__)
 
+@app.route('/getDate/<date>', methods=['GET'])
+def queryDB(date):
+    day = date[4]+date[5]+date[6]+date[7]+"-"+date[0]+date[1]+"-"+date[2]+date[3]
+    country = US
+    tracks = db.select_tracks_from_date(day, country) 
+    songList = []
+    for t in tracks:
+        songList.append({
+            "id": t[0],
+            "pos": t[1]
+        })
+    return {"tracks": songList}
+
 @app.route('/scrapeData/<date>', methods=['GET'])
 def collect_data(date):
     day = date[4]+date[5]+date[6]+date[7]+"-"+date[0]+date[1]+"-"+date[2]+date[3]
     r = requests.get(CHARTS_URL + VIRAL + US + "daily/" + day)
     if (r.status_code == 200):
-        print("success")
         html = r.text
         # parse the html
         html_dump = BeautifulSoup(html, 'html.parser')
@@ -39,19 +51,6 @@ def collect_data(date):
                 "pos": position,
             })
         return {"tracks": songDetails}
-
-@app.route('/getDate/<date>', methods=['GET'])
-def queryDB(date):
-    day = date[4]+date[5]+date[6]+date[7]+"-"+date[0]+date[1]+"-"+date[2]+date[3]
-    country = US
-    tracks = db.select_tracks_from_date(day, country) 
-    songList = []
-    for t in tracks:
-        songList.append({
-            "id": t[0],
-            "pos": t[1]
-        })
-    return {"tracks": songList}
 
 if __name__ == '__main__': 
     app.run()
