@@ -27,7 +27,9 @@ You will also see any errors in the console.
 
 ## Start the Server:
 
-In a separate terminal from the retro-tracker/ folder:
+In a separate terminal:
+
+from the retro-tracker/ folder
 
 ### `cd src/api`
 ### `flask run`
