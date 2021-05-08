@@ -60,7 +60,14 @@ class RetroContainer extends React.Component {
                 return data.tracks.map(t=>t.id)
             })
             .then(tracks => {
-                spotifyApi.getTracks(tracks)
+                // if this day is invalid
+                if (tracks.length === 0) {
+                    this.setState({
+                        songs: tracks,
+                        justQueried: true
+                    })
+                } else {
+                    spotifyApi.getTracks(tracks)
                     .then(response => {
                         let songsArray = response.tracks.map((s) => 
                         // not exactly by day, but correct by year
@@ -84,6 +91,7 @@ class RetroContainer extends React.Component {
                             justQueried: true
                         })
                     })
+                }
             })
     }
 
