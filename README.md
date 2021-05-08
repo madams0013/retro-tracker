@@ -32,7 +32,7 @@ Now make your first date selection!
 * Support more dates
   * The Spotify Charts website doesn't seem to allow scraping anymore, which was my initial approach to accessing viral chart data. Instead, I used a db I had previously stored of the Spotify Charts data of years 2019 and 2020. This is the data that's used for this project. I hope to support more dates as a next step.
 * Display the position of the song
-  * Within a song tile, I want to add the position that song held in the charts on that day
+  * Within a song tile, I want to add the position that song held in the charts on that day.
 * Conditional dropdown option rendering in the date selectors
   * Add conditional rendering for months with fewer days (so the day dropdown will only show the valid days)
 * Add support for another top music chart, the top 200 songs, which is different from the viral chart
