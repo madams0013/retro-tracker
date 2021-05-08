@@ -5,9 +5,9 @@ class SelectBar extends React.Component {
 
     state = {
         date: {
-            month: "05",
-            day: "03",
-            year: "2021",
+            month: "01",
+            day: "01",
+            year: "2020",
         }
     }
 
@@ -21,7 +21,6 @@ class SelectBar extends React.Component {
     }
 
     handleSubmit = (e) => {
-        // what does this do?
         e.preventDefault();
         this.props.submitDate(this.state.date);
     }
@@ -101,7 +100,7 @@ class SelectBar extends React.Component {
                         onChange={this.onChange}>
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
-                        <option value="2021">2021</option>
+                        {/* <option value="2021">2021</option> */}
                     </select>
                     
                     <button className="selectBarSubmit">Submit</button>

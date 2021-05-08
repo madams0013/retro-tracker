@@ -2,6 +2,7 @@ import React from 'react';
 import "./index.css"
 import { Col } from 'react-simple-flex-grid';
 
+// tile for each song displayed
 function SongBox(props) {
     return (
         <Col 

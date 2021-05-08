@@ -15,6 +15,7 @@ SONG_IDX = 3
 
 app = Flask(__name__)
 
+# For querying the pre-made DB of viral and top 200 songs
 @app.route('/getDate/<date>', methods=['GET'])
 def queryDB(date):
     day = date[4]+date[5]+date[6]+date[7]+"-"+date[0]+date[1]+"-"+date[2]+date[3]
@@ -28,6 +29,8 @@ def queryDB(date):
         })
     return {"tracks": songList}
 
+# THIS HASN'T BEEN WORKING -- The spotify charts server keeps responding with 503 errors
+# For scraping the spotify charts website that has top charts data back many years
 @app.route('/scrapeData/<date>', methods=['GET'])
 def collect_data(date):
     day = date[4]+date[5]+date[6]+date[7]+"-"+date[0]+date[1]+"-"+date[2]+date[3]

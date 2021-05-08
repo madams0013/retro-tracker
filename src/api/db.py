@@ -171,6 +171,7 @@ def select_all_track_ids():
     ids = [x[0] for x in ids]
     return ids
 
+### ----- GET VIRAL SONGS FROM PARTICULAR DATE ----- ###
 def select_tracks_from_date(date, country):
     cur = conn.cursor()
 

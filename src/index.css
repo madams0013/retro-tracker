@@ -9,6 +9,11 @@ h1, .selectBar {
     text-align: center;
 }
 
+.headerText {
+    font-family: "Lucida Sans Typewriter", "Courier New", monospace;
+    text-align: center;
+}
+
 .tileLabels {
     background-color: #77dfa8;
     color: black;

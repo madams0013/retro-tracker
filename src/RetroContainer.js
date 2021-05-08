@@ -2,11 +2,11 @@ import React from 'react';
 import RetroHeader from "./RetroHeader.js"
 import SelectBar from "./SelectBar.js"
 import PickSong from './PickSong.js'
-
-import "./index.css"
 import SongsContainer from './SongsContainer.js';
+import "./index.css"
 
 import SpotifyWebApi from 'spotify-web-api-js';
+
 const spotifyApi = new SpotifyWebApi();
 // hide these!
 const clientID = "568261f5aef343f0be0fa481bea603c5";
@@ -39,12 +39,18 @@ class RetroContainer extends React.Component {
             justQueried: false,
         };
 
+        // generate and set the access token for spotify API
         fetch(authEndpoint, requestOptions)
             .then((response) => response.json())
             .then((data) => data.access_token)
             .then((token) => spotifyApi.setAccessToken(token))
     }
 
+    // happens upon submit of a new date:
+        // fetches the songs from that date from the database
+        // takes those track ids and sends to Spotify through api call for more track information
+        // receives Spotify response and extracts relevant information
+        // sets state -> triggers render update
     submitDate = async (date) => {
         const dayForAPI = `${date.month}${date.day}${date.year}`
 
