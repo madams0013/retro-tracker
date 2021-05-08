@@ -9,6 +9,9 @@ h1, .selectbar {
     text-align: center;
 }
 
-/* .albumimage {
-    width:
-} */
+.tileLabels {
+    background-color: #77dfa8;
+    color: black;
+    font-family: "Lucida Sans Typewriter", "Courier New", monospace;
+    text-align: center;
+}

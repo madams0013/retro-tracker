@@ -1,6 +1,7 @@
 import React from 'react';
 import RetroHeader from "./RetroHeader.js"
 import SelectBar from "./SelectBar.js"
+import PickSong from './PickSong.js'
 
 import "./index.css"
 import SongsContainer from './SongsContainer.js';
@@ -33,13 +34,51 @@ class RetroContainer extends React.Component {
                 day: 5,
                 year: 2021
             },
-            songs: [
-            ],
+            songs: [],
             res: "",
-            trackIDs: ["3KkXRkHbMCARz0aVfEt68P", "6MWtB6iiXyIwun0YzU6DFP", "78QR3Wp35dqAhFEc2qAGjE", "1xzBco0xcoJEDXktl7Jxrr", "2GGMabyHXnJmjY6CXhhB2e",
-                        "1co0puPTYvqAdUEjFOjne9", "285pBltuF7vW8TeWk8hdRR"],
-            tracksResponse: ""
+            justQueried: false,
         };
+    }
+
+    submitDate = async (date) => {
+
+        if (this.state.res.access_token) {
+            spotifyApi.setAccessToken(this.state.res.access_token);
+        }
+
+        const dayForAPI = `${date.month}${date.day}${date.year}`
+
+        fetch(`/getDate/${dayForAPI}`)
+            .then(res => res.json())
+            .then(data=> {
+                return data.tracks.map(t=>t.id)
+            })
+            .then(tracks => {
+                spotifyApi.getTracks(tracks)
+                    .then(response => {
+                        let songsArray = response.tracks.map((s) => 
+                        // not exactly by day, but correct by year
+                        {
+                            return (
+                                {
+                                    title: s.name,
+                                    id: s.id,
+                                    artists: s.artists.map(a => {
+                                        return a.name;
+                                    }),
+                                    releaseDate: s.album.release_date,
+                                    image: s.album.images[0],
+                                })
+                        });
+                        songsArray = songsArray.filter(s => s.releaseDate.slice(0,4) < date.year-20)
+                        return songsArray
+                    }).then(songsArray => {
+                        this.setState({
+                            songs: songsArray,
+                            justQueried: true
+                        })
+                    })
+            })
     }
 
     componentDidMount() {
@@ -48,49 +87,12 @@ class RetroContainer extends React.Component {
             .then((data) => this.setState({res: data}));
     }
 
-    submitDate = (date) => {
-        console.log(date)
-        const dayForAPI = `${date.month}${date.day}${date.year}`
-        console.log(dayForAPI)
-        fetch(`/getDate/${dayForAPI}`)
-        .then(res => res.json())
-        .then(data=> {
-            this.setState({
-                trackIDs: data.tracks.map(t => t.id)
-            })
-        });
-
-        if (this.state.res.access_token) {
-            spotifyApi.setAccessToken(this.state.res.access_token);
-        }
-
-        spotifyApi.getTracks(this.state.trackIDs)
-            .then(response => {
-                let songsArray = response.tracks.map((s) => 
-                    {return (
-                        {
-                            title: s.name,
-                            id: s.id,
-                            artists: s.artists.map(a => {
-                                return a.name;
-                            }),
-                            releaseDate: s.album.release_date,
-                            image: s.album.images[0],
-                        })
-                    });
-                return songsArray;
-            }).then(songsArray => {
-                this.setState({
-                    songs: songsArray
-                })
-            })
-    }
-
     render() {
         return (
             <div>
                 <RetroHeader/>
                 <SelectBar submitDate={this.submitDate}/>
+                <PickSong songs={this.state.songs} justQueried={this.state.justQueried}/>
                 <SongsContainer songs={this.state.songs}/>
             </div>
         )

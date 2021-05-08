@@ -15,11 +15,10 @@ SONG_IDX = 3
 
 app = Flask(__name__)
 
-@app.route('/data', methods=['GET'])
-def collect_data(country, chart, date):
-    print(CHARTS_URL + chart + country + "daily/" + date)
-    r = requests.get(CHARTS_URL + chart + country + "daily/" + date)
-    print(r)
+@app.route('/scrapeData/<date>', methods=['GET'])
+def collect_data(date):
+    day = date[4]+date[5]+date[6]+date[7]+"-"+date[0]+date[1]+"-"+date[2]+date[3]
+    r = requests.get(CHARTS_URL + VIRAL + US + "daily/" + day)
     if (r.status_code == 200):
         print("success")
         html = r.text
