@@ -43,6 +43,7 @@ Now make your first date selection!
   * Within a song tile, I want to add the position that song held in the charts on that day.
 * Conditional dropdown option rendering in the date selectors
   * Add conditional rendering for months with fewer days (so the day dropdown will only show the valid days)
+  * Right now selecting an invalid day (ex. February 30) renders "No retro songs on this day :("
 * Add support for another top music chart, the top 200 songs, which is different from the viral chart
   * Top 200 songs are the most streamed, while viral is the most shared between people
 * Render the release date of a song as Month Day, Year as opposed to year-month-day
