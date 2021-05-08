@@ -4,6 +4,8 @@ This app allows a user to select a date and it will display the songs from the t
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+It uses a React.js frontend and a python/Flask backend.
+
 # To Run:
 ## Clone this repo:
 
