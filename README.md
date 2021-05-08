@@ -4,7 +4,8 @@ This app allows a user to select a date and it will display the songs from the t
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## To Run the Client:
+# To Run:
+## Start the Client:
 
 In the project directory, you run:
 
@@ -16,7 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-## To Run the Server:
+## Start the Server:
 
 In a separate terminal from the retro-tracker/ folder:
 
@@ -25,4 +26,4 @@ In a separate terminal from the retro-tracker/ folder:
 
 The server should now be up and running.
 
-## Make your first date selection!
+Now make your first date selection!
