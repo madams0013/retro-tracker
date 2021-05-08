@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# \~Retro\~ Tracker!
+
+This app allows a user to select a date and it will display the songs from the top 50 viral chart on that particular day that were released more than 20 years before. It shows "old" songs that came back to be popular on the selected day.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# To Run:
+## Clone this repo:
 
-In the project directory, you can run:
+Click the code dropdown on the repo homepage and copy the link
 
-### `yarn start`
+### `git clone {link}`
+### `cd retro-tracker`
 
-Runs the app in the development mode.\
+## Start the Client:
+
+In the project directory, you run:
+
+### `npm install`
+### `npm start`
+
+Runs the app.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You will also see any errors in the console.
 
-### `yarn test`
+## Start the Server:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In a separate terminal:
 
-### `yarn build`
+from the retro-tracker/ folder
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `cd src/api`
+### `flask run`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The server should now be up and running.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Now make your first date selection!
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Future Steps:
+* Support more dates
+  * The Spotify Charts website doesn't seem to allow scraping anymore, which was my initial approach to accessing viral chart data. Instead, I used a db I had previously stored of the Spotify Charts data of years 2019 and 2020. This is the data that's used for this project. I hope to support more dates as a next step.
+* Display the position of the song
+  * Within a song tile, I want to add the position that song held in the charts on that day.
+* Conditional dropdown option rendering in the date selectors
+  * Add conditional rendering for months with fewer days (so the day dropdown will only show the valid days)
+  * Right now selecting an invalid day (ex. February 30) renders "No retro songs on this day :("
+* Add support for another top music chart, the top 200 songs, which is different from the viral chart
+  * Top 200 songs are the most streamed, while viral is the most shared between people
+* Render the release date of a song as Month Day, Year as opposed to year-month-day
